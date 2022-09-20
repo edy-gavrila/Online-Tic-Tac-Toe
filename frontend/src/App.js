@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./components/footer/Footer";
+import { Navbar } from "./components/navbar/Navbar";
+import PlayArea from "./components/playarea/PlayArea";
+import UserList from "./components/userlist/UserList";
+
+const styles = {
+  app: "h-screen  min-w-[360px]",
+  contentContainer:
+    "flex flex-col sm:flex-row h-[90vh] sm:px-8 sm:py-8 overflow-hidden",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <Navbar />
+      <div className={styles.contentContainer}>
+        <UserList userlist={{}} />
+        <PlayArea
+          gameData={{ player1: { name: "Roby" }, player2: { name: "Chad" }, nextPlayer: {name: "Chad", mark: "O"} }}
+        />
+      </div>
+      <Footer />
     </div>
   );
 }
